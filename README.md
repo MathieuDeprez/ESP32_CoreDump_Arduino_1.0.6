@@ -196,12 +196,12 @@ I usually go to the part with:
 And I try to find a function name that I have in my program. In that case, the crash occured in the loop() function at line 30.
 >#0  0x400d0dd4 in loop () at src/main.cpp:30
 
-At line 30 of my program, we can find this line:
->27: Serial.println("RESTART ::");
-28: int  a = 0;
-29: int  b = 4;
-**30: Serial.printf("%d\n", b / a);**
-31: }
+At line 30 of my program, we can find this line:  
+>27: Serial.println("RESTART ::");  
+28: int  a = 0;  
+29: int  b = 4;  
+**30: Serial.printf("%d\n", b / a);**  
+31: }  
 
 # And there you go !
 
