@@ -2,9 +2,9 @@
 
 # 1) Create an Arduino project with PlatformIO
 Your "platformio.ini" file should have at least these lines:
->platform = espressif32
->framework = arduino
->board_build.partitions = partitions.csv
+>platform = espressif32  
+>framework = arduino  
+>board_build.partitions = partitions.csv  
 
 (like in the repo) 
 
@@ -15,21 +15,21 @@ Copy the "partitions.csv" file to the root of your project. (like in the repo)
 Either with the "PlatformIO Build" button or the "pio run" command.
 
 # 4) Update your package folder
-1- Go to "/home/yourName/.platformio/packages/framework-arduinoespressif32" folder.
-2- In the root of the repo, you can find the "out_01.zip" file, unzip the content of the "/out" folder in the "framework-arduinoespressif32" folder.
+1- Go to "/home/yourName/.platformio/packages/framework-arduinoespressif32" folder.  
+2- In the root of the repo, you can find the "out_01.zip" file, unzip the content of the "/out"   folder in the "framework-arduinoespressif32" folder.
 # 5) Clean the build and build again
 1) Either with the "PlatformIO Clean" button or the "pio run -t clean" command.
 2) Either with the "PlatformIO Build" button or the "pio run" command.
 # 6) Example application
 You can find in /src/main.cpp, an example application. This code should crash after 10s and print the CoreDump in the setup() function.
 Run it and wait for the crash. At the next boot, you will see in the serial console the bytes of the coreDump:
->4c160000010000000700000064010000
->5880fb3fd01efb3f5420fb3f701efb3ff01
->ffb3f2d270000b00dfc3fb00dfc3f5880fb
->......
->3fa80dfc3f18000000147efb3f147efb3f5
->880fb3f00000000010000005800fb3f6c
->0000000000000000000000000000000
+>4c160000010000000700000064010000  
+>5880fb3fd01efb3f5420fb3f701efb3ff01  
+>ffb3f2d270000b00dfc3fb00dfc3f5880fb  
+>......  
+>3fa80dfc3f18000000147efb3f147efb3f5  
+>880fb3f00000000010000005800fb3f6c  
+>0000000000000000000000000000000  
 
 Copy it and paste the base64 conversion to a file called "coreDump.b64" in the root of your project.
 # 7) Install esp-idf, xtensa and libncurses5 
@@ -46,8 +46,6 @@ As described in the website, install esp-idf: https://docs.espressif.com/project
 >. ./export.sh
 
 >git submodule update --init --recursive
-
->python -m pip install --user -r $IDF_PATH/requirements.txt
 
 ## 2- Install xtensa
 Download package (link to the website here:https://docs.espressif.com/projects/esp-idf/en/release-v3.3/get-started/linux-setup.html):
@@ -84,17 +82,20 @@ Add these lines to the bottom of the file and save it :
 Reload the profile with the following command :
 > source ~/.profile
 
+Install python requirements:
+>python -m pip install --user -r $IDF_PATH/requirements.txt
+
 ## 4-libncurses5 
 On Linux, you must install libncurses5 with the following command:
 >sudo apt-get install libncurses5
 
 # 8) Decode your coreDump
-1- Open a terminal in your project folder.
-2- To be sure that the path is loaded, you can reload it manually with:
+1- Open a terminal in your project folder.  
+2- To be sure that the path is loaded, you can reload it manually with:  
 >source ~/.profile
 
 3- Decode the coreDump with this command:
->espcoredump.py info_corefile -c ./coreDump.txt -t b64 -rom-elf ./.pio/build/esp32dev/firmware.elf
+>espcoredump.py info_corefile -c ./coreDump.b64 -t b64 -rom-elf ./.pio/build/esp32dev/firmware.elf
 # 9) Understanding the output
 Here is an example output: 
 
@@ -188,7 +189,7 @@ Name   Address   Size   Attrs
 Done!
 </details>
 
-There is a lot of details that you do not necessarily need to understand why the code crashed.
+There is a lot of details that you do not necessarily need to understand why the code crashed.  
 I usually go to the part with:
 >==================== CURRENT THREAD STACK =====================
 
