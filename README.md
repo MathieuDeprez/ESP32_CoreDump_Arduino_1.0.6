@@ -74,9 +74,9 @@ Unzip it :
 
 Add these lines to the bottom of the file and save it :
 >export PATH="\$HOME/esp/xtensa-esp32-elf/bin:\$PATH"
-export IDF_PATH=~/esp/esp-idf
-export PATH="\$IDF_PATH/tools:\$PATH"
-export PATH="\$IDF_PATH/components/espcoredump:\$PATH"
+>export IDF_PATH=~/esp/esp-idf
+>export PATH="\$IDF_PATH/tools:\$PATH"
+>export PATH="\$IDF_PATH/components/espcoredump:\$PATH"
 
 Reload the profile with the following command :
 > source ~/.profile
