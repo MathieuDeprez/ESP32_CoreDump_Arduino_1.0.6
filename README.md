@@ -31,7 +31,8 @@ Run it and wait for the crash. At the next boot, you will see in the serial cons
 >880fb3f00000000010000005800fb3f6c  
 >0000000000000000000000000000000  
 
-Copy it and paste the base64 conversion to a file called "coreDump.b64" in the root of your project.
+Copy it and paste the base64 conversion to a file called "coreDump.b64" in the root of your project.  
+An example of a website which can convert bytes to base64: https://base64.guru/converter/encode/hex  
 # 7) Install esp-idf, xtensa and libncurses5 
 ## 1- Install esp-idf
 As described in the website, install esp-idf: https://docs.espressif.com/projects/esp-idf/en/release-v3.3/get-started/index.html#get-esp-idf
